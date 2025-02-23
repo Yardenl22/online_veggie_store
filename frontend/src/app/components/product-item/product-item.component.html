@@ -1,0 +1,6 @@
+<div class="product-item">
+  <span>{{ product.name }} </span>
+  <span>{{ product.price | number:'1.2-2' }} ₪</span>&nbsp;
+  <button (click)="onRemove()"> - </button>
+  <button (click)="onAdd()"> + </button>
+</div>
