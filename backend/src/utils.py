@@ -1,5 +1,5 @@
 import os
-from storage_adapters import StorageInterface, MongoDBStorage, MySQLStorage, TextFileStorage
+from .storage_adapters import StorageInterface, MongoDBStorage, MySQLStorage, TextFileStorage
 
 from src.config import config
 

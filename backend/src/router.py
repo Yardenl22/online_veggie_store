@@ -3,8 +3,7 @@ from fastapi.params import Depends
 
 from src.models import ProductSForCategoryRequest, ShoppingCart, ShoppingCartRequest
 from src.storage_adapters import StorageInterface
-import utils
-
+from . import utils
 router = APIRouter()
 
 

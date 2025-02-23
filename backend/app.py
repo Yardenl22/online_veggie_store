@@ -3,9 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import RedirectResponse
 import uvicorn
 
-from router import router
-from src.config import config
-import utils
+from src import router, config, utils
 
 
 HOST: str = config.SERVICE.HOST
