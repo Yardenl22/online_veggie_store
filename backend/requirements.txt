@@ -1,0 +1,6 @@
+dynaconf
+fastapi
+mysql-connector-python
+pydantic
+pymongo
+uvicorn

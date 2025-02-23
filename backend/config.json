@@ -1,0 +1,12 @@
+{
+  "SERVICE": {
+    "HOST": "127.0.0.1",
+    "PORT": 8080,
+    "STORAGE_OPTION": "mongodb"
+  },
+  "MONGODB": {
+    "CATEGORIES_COLLECTION": "product_categories",
+    "PRODUCTS_COLLECTION": "products",
+    "SHOPPING_CART_COLLECTION": "shopping_carts"
+  }
+}
