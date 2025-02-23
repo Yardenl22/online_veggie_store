@@ -1,0 +1,18 @@
+<section class="shopping-cart">
+  <h3>Shopping Cart</h3>
+  <ul>
+    <li *ngFor="let item of cartItemsSignal()">
+      <span>{{ item.quantity }}  </span>
+      <span>{{ item.product.name }}  </span>
+      <span>  {{ (item.product.price * item.quantity) | number:'1.2-2' }} ₪</span>&nbsp;
+      <button (click)="decrease(item.product)"> - </button>
+      <button (click)="increase(item.product)"> + </button>
+      <button (click)="removeProduct(item.product)"> Remove </button>
+    </li>
+  </ul>
+  <div class="cart-summary">
+    <div>Total Items: {{ totalItems }}</div>
+    <div>Total Price: {{ totalPrice | number:'1.2-2' }} ₪</div>
+  </div>
+  <button (click)="saveCart()">Save Cart</button>
+</section>

@@ -1,0 +1,18 @@
+<section class="product-list">
+  <h3>Products for category: {{ category }}</h3>
+  <ul>
+    <li *ngFor="let product of productsSignal()">
+      <app-product-item
+        [product]="product"
+        (add)="addProduct($event)"
+        (remove)="removeProduct($event)">
+      </app-product-item>
+    </li>
+  </ul>
+
+  <div class="pagination-controls">
+    <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+    <span>Page {{ currentPage }}</span>
+    <button (click)="nextPage()">Next</button>
+  </div>
+</section>
