@@ -1,18 +1,25 @@
 <section class="product-list">
-  <h3>Products for category: {{ category }}</h3>
-  <ul>
-    <li *ngFor="let product of productsSignal()">
-      <app-product-item
-        [product]="product"
-        (add)="addProduct($event)"
-        (remove)="removeProduct($event)">
-      </app-product-item>
-    </li>
-  </ul>
+  <h3 class="h3">{{ category }}</h3>
+  <div class="product-grid">
+    <p-card *ngFor="let product of productsSignal()" class="product-card">
+      <ng-template pTemplate="header">
+        <h3>{{ product.name }}</h3>
+      </ng-template>
+
+      <ng-template pTemplate="content">
+        <p>Price: {{ product.price | number:'1.2-2' }} ₪</p>
+      </ng-template>
+
+      <ng-template pTemplate="footer">
+        <p-button icon="pi pi-plus" (click)="addProduct(product)" class="p-button-success"></p-button>
+        <p-button severity="danger" icon="pi pi-minus" (click)="removeProduct(product)" class="remove-button"></p-button>
+      </ng-template>
+    </p-card>
+  </div>
 
   <div class="pagination-controls">
-    <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+    <p-button label="Previous" icon="pi pi-chevron-left" (click)="previousPage()" [disabled]="currentPage === 1"></p-button>
     <span>Page {{ currentPage }}</span>
-    <button (click)="nextPage()">Next</button>
+    <p-button label="Next" icon="pi pi-chevron-right" (click)="nextPage()"></p-button>
   </div>
 </section>

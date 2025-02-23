@@ -1,15 +1,17 @@
-import {CommonModule} from '@angular/common';
-import {Component, Input, Signal} from '@angular/core';
-import {ProductItemComponent} from '../product-item/product-item.component';
-import {ProductsService} from '../../services/products.service';
-import {Product} from '../../models/product.model';
-import {ShoppingCartService} from '../../services/shopping-cart.service';
+import { CommonModule } from '@angular/common';
+import { Component, Input, Signal } from '@angular/core';
+import { Product } from '../../models/product.model';
+import { ProductsService } from '../../services/products.service';
+import { ShoppingCartService } from '../../services/shopping-cart.service';
 
+import { ButtonModule } from 'primeng/button';
+import { CardModule } from 'primeng/card';
+import {TableModule} from "primeng/table";
 
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [CommonModule, ProductItemComponent],
+  imports: [CommonModule, ButtonModule, CardModule, TableModule],
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
 })

@@ -1,0 +1,36 @@
+.product-list {
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.product-card {
+    padding: 0.5rem;
+    transition: transform 0.2s ease-in-out;
+    text-align: center;
+}
+
+.product-card h4 {
+    margin: 0;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.remove-button {
+    background-color: #e74c3c !important;
+    border: none !important;
+    color: white !important;
+}
+
+.h3 {
+    text-transform: capitalize;
+}
