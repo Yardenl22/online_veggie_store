@@ -7,8 +7,8 @@ from pydantic import BaseModel, Field, PlainValidator
 
 
 class CategoryEnum(str, Enum):
-    FRUIT = 'fruit'
-    VEGETABLE = 'vegetable'
+    FRUIT = 'fruits'
+    VEGETABLE = 'vegetables'
 
 
 class ProductSForCategoryRequest(BaseModel):
