@@ -4,19 +4,33 @@
   height: 100vh;
 }
 
-header {
-  padding: 1rem;
+
+.p-toolbar {
   background-color: #4CAF50;
+  border: none;
+}
+
+.p-toolbar-group-left h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.p-toolbar-group-right .p-button {
+  margin-left: 1rem;
 }
 
 main {
   flex: 1;
   overflow-y: auto;
   padding: 1rem;
-  background-color: #F9F9F9;
+  background-color: #FAF3E0;
 }
 
 footer {
   padding: 1rem;
   background-color: #4CAF50;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
 }
