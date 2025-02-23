@@ -1,0 +1,42 @@
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.quantity {
+    font-size: 1.2rem;
+    font-weight: bold;
+    min-width: 30px;
+    text-align: center;
+}
+
+.p-button-text {
+    padding: 0.3rem 0.6rem;
+}
+
+.p-button-danger {
+    background-color: red;
+    color: white;
+}
+
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.divider {
+    border: none;
+    height: 2px;
+    background: #ddd;
+    margin: 15px 0;
+}
+
+.cart-summary {
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
