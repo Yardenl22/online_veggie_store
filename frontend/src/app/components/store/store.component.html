@@ -2,12 +2,14 @@
   <div class="left">
     <section class="categories">
       <h3>Categories</h3>
-      <ul>
-        <li *ngFor="let category of categoriesSignal()" (click)="selectCategory(category)" style="cursor: pointer;">
-          {{ category }}
-        </li>
-      </ul>
+      <p-dropdown
+        [options]="categoriesSignal()"
+        [(ngModel)]="selectedCategory"
+        (onChange)="selectCategory(selectedCategory)"
+        class="category-list">
+      </p-dropdown>
     </section>
+    <hr>
     <app-product-list [category]="selectedCategory"></app-product-list>
   </div>
 
