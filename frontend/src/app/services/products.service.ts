@@ -12,8 +12,8 @@ export class ProductsService {
   constructor(private api: ApiAdapterService) {}
 
   fetchProductsByCategory(category: string, pageSize = 3, page = 1): void {
-    const endpoint = `/products_by_category?category=${category}&pageSize=${pageSize}&page=${page}`;
-    this.api.get<{ products: Product[] }>(endpoint)
+    const products_by_category_url = `/products_by_category?category=${category}&pageSize=${pageSize}&page=${page}`;
+    this.api.get<{ products: Product[] }>(products_by_category_url)
       .pipe(
         map(response => response.products)
       )

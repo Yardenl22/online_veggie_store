@@ -8,8 +8,7 @@ import {ProductCategoriesResponse} from '../models/category.model';
 export class CategoriesService {
   categories = signal<string[]>([]);
 
-  constructor(private api: ApiAdapterService) {
-  }
+  constructor(private api: ApiAdapterService) {}
 
   fetchCategories(): void {
     this.api.get<ProductCategoriesResponse>('/product_categories')
