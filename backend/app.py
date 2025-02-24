@@ -1,7 +1,7 @@
+import uvicorn
 from fastapi import FastAPI, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import RedirectResponse
-import uvicorn
 
 from src import router, config, utils
 
@@ -14,12 +14,11 @@ app = FastAPI(
     description="An API to manage shopping carts, products, and orders."
 )
 
-# allow 2 local origins at the same time
-origins = ["http://localhost:4200"]
+origins_urls = ["http://localhost:4200"]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,  # allows only the specified origins
+    allow_origins=origins_urls,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

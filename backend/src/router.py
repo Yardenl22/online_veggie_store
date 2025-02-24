@@ -4,6 +4,7 @@ from fastapi.params import Depends
 from src.models import ProductSForCategoryRequest, ShoppingCart, ShoppingCartRequest
 from src.storage_adapters import StorageInterface
 from . import utils
+
 router = APIRouter()
 
 
@@ -12,11 +13,6 @@ def get_product_categories(storage: StorageInterface = Depends(utils.get_storage
     categories = storage.get_categories()
     return {'categories': categories}
 
-
-# @router.post('/add__products')
-# def add_product(product: Product,storage: StorageInterface = Depends(utils.get_storage)):
-#     storage.add_products(product)
-#
 
 
 @router.get('/products_by_category')

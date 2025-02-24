@@ -26,8 +26,6 @@ class MongoDBStorage(StorageInterface):
         categories = [doc['category_name'] for doc in self.db[CATEGORIES_COLLECTION].find()]
         return categories
 
-    # def add_products(self, product: Product):
-    #     self.db['products'].insert_one(product.to_dict())
 
     def get_products_by_category(self, category: str) -> list[Product]:
         cursor = self.db[PRODUCTS_COLLECTION].find({"category": category},{"category": 0})
