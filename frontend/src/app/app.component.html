@@ -1,14 +1,14 @@
 <p-toolbar class="app-header">
-    <div class="p-toolbar-group-left">
-        <h2 class="logo">🥕 Veggie Store</h2>
-    </div>
+  <div class="p-toolbar-group-left">
+    <h2 class="logo">🥕 Veggie Store</h2>
+  </div>
 </p-toolbar>
 
 <main>
-    <router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 </main>
 
 <p-divider></p-divider>
 <footer class="app-footer">
-    <div>🛒 Cart Total Items: {{ totalItems }}</div>
+  <div>🛒 Cart Total Items: {{ shoppingCartService.totalItems() }}</div>
 </footer>
