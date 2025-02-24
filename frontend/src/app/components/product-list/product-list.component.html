@@ -1,5 +1,5 @@
 <section class="product-list">
-  <h3 class="h3">{{ category }}</h3>
+  <h3 class="h3">{{ category() }}</h3>
   <div class="product-grid">
     <p-card *ngFor="let product of productsSignal()" class="product-card">
       <ng-template pTemplate="header">
@@ -11,15 +11,15 @@
       </ng-template>
 
       <ng-template pTemplate="footer">
-        <p-button icon="pi pi-plus" (click)="addProduct(product)" class="p-button-success"></p-button>
-        <p-button severity="danger" icon="pi pi-minus" (click)="removeProduct(product)" class="remove-button"></p-button>
+        <p-button icon="pi pi-plus" (click)="shoppingCartService.addProduct(product)" class="p-button-success"></p-button>
+        <p-button severity="danger" icon="pi pi-minus" (click)="shoppingCartService.removeProduct(product)" class="remove-button"></p-button>
       </ng-template>
     </p-card>
   </div>
 
   <div class="pagination-controls">
-    <p-button label="Previous" icon="pi pi-chevron-left" (click)="previousPage()" [disabled]="currentPage === 1"></p-button>
-    <span>Page {{ currentPage }}</span>
+    <p-button label="Previous" icon="pi pi-chevron-left" (click)="previousPage()" [disabled]="productsService.currentPage() === 1"></p-button>
+    <span>Page {{ productsService.currentPage() }}</span>
     <p-button label="Next" icon="pi pi-chevron-right" (click)="nextPage()"></p-button>
   </div>
 </section>

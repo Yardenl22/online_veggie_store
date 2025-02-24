@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, Signal } from '@angular/core';
+import { Component, input, Signal, effect } from '@angular/core';
 import { Product } from '../../models/product.model';
 import { ProductsService } from '../../services/products.service';
 import { ShoppingCartService } from '../../services/shopping-cart.service';
 
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
-import {TableModule} from "primeng/table";
+import { TableModule } from "primeng/table";
 
 @Component({
   selector: 'app-product-list',
@@ -17,50 +17,33 @@ import {TableModule} from "primeng/table";
 })
 export class ProductListComponent {
   productsSignal: Signal<Product[]>;
-  currentPage: number = 1;
-  pageSize: number = 3;
-  private _category: string = '';
-
-  @Input() set category(value: string) {
-    this._category = value;
-    if (this._category) {
-      this.currentPage = 1;
-      this.fetchProducts();
-    }
-  }
-
-  get category(): string {
-    return this._category;
-  }
+  category = input<string>('');
 
   constructor(
-    private productsService: ProductsService,
-    private shoppingCartService: ShoppingCartService
+    public productsService: ProductsService,
+    public shoppingCartService: ShoppingCartService
   ) {
     this.productsSignal = this.productsService.products;
+
+    effect(() => {
+      if (this.category()) {
+        this.productsService.resetPage();
+        this.fetchProducts();
+      }
+    });
   }
 
   fetchProducts() {
-    this.productsService.fetchProductsByCategory(this.category, this.pageSize, this.currentPage);
+    this.productsService.fetchProductsByCategory(this.category(), this.productsService.pageSize(), this.productsService.currentPage());
   }
 
   nextPage() {
-    this.currentPage++;
+    this.productsService.nextPage();
     this.fetchProducts();
   }
 
   previousPage() {
-    if (this.currentPage > 1) {
-      this.currentPage--;
-      this.fetchProducts();
-    }
-  }
-
-  addProduct(product: Product) {
-    this.shoppingCartService.addProduct(product);
-  }
-
-  removeProduct(product: Product) {
-    this.shoppingCartService.removeProduct(product);
+    this.productsService.previousPage();
+    this.fetchProducts();
   }
 }

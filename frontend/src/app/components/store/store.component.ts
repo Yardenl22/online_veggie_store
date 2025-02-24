@@ -1,6 +1,6 @@
-import { CommonModule } from '@angular/common';
+import {CommonModule} from '@angular/common';
 import {CategoriesService} from '../../services/categories.service';
-import {Component, OnInit, Signal} from '@angular/core';
+import {Component, Signal, signal} from '@angular/core';
 import {ProductListComponent} from '../product-list/product-list.component';
 import {ShoppingCartComponent} from '../shopping-cart/shopping-cart.component';
 
@@ -14,19 +14,16 @@ import {FormsModule} from '@angular/forms';
   templateUrl: './store.component.html',
   styleUrl: './store.component.css'
 })
-export class StoreComponent implements OnInit{
+export class StoreComponent {
   categoriesSignal: Signal<string[]>;
-  selectedCategory: string = '';
+  selectedCategory = signal<string>('');
 
   constructor(private categoriesService: CategoriesService) {
     this.categoriesSignal = this.categoriesService.categories;
-  }
-
-  ngOnInit(): void {
     this.categoriesService.fetchCategories();
   }
 
-  selectCategory(category: string): void {
-    this.selectedCategory = category;
+  updateCategory(value: string) {
+    this.selectedCategory.set(value);
   }
 }
